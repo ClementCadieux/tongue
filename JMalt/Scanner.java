@@ -87,6 +87,12 @@ public class Scanner {
         }
     }
 
+    private char peek() {
+        if (isAtEnd())
+            return '\0';
+        return source.charAt(current);
+    }
+
     private boolean match(char expected) {
         if (isAtEnd())
             return false;
