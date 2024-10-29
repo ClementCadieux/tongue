@@ -105,11 +105,14 @@ public class Scanner {
     }
 
     private void number() {
+        boolean isFloat = false;
+
         while (isDigit(peek()))
             advance();
 
         // Look for a fractional part.
         if (peek() == '.' && isDigit(peekNext())) {
+            isFloat = true;
             // Consume the "."
             advance();
 
@@ -117,7 +120,7 @@ public class Scanner {
                 advance();
         }
 
-        addToken(NUMBER,
+        addToken(isFloat ? FLOAT : INTEGER,
                 Double.parseDouble(source.substring(start, current)));
     }
 
