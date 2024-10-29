@@ -90,6 +90,10 @@ public class Scanner {
             case '\n':
                 line++;
                 break;
+            case '"':
+                string();
+                break;
+
             default:
                 Malt.error(line, "Unexpected character.");
                 break;
