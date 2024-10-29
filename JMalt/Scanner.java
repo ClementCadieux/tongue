@@ -60,6 +60,18 @@ public class Scanner {
             case '*':
                 addToken(STAR);
                 break;
+            case '!':
+                addToken(match('=') ? BANG_EQUAL : BANG);
+                break;
+            case '=':
+                addToken(match('=') ? EQUAL_EQUAL : EQUAL);
+                break;
+            case '<':
+                addToken(match('=') ? LESS_EQUAL : LESS);
+                break;
+            case '>':
+                addToken(match('=') ? GREATER_EQUAL : GREATER);
+                break;
             default:
                 Malt.error(line, "Unexpected character.");
                 break;
