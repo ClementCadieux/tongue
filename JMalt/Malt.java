@@ -15,6 +15,8 @@ import java.util.Scanner;
  */
 public class Malt {
 
+    static boolean hadError = false;
+
     public static void main(String[] args) {
         if (args.length > 1) {
             System.out.println("Usage: jMalt [script]");
