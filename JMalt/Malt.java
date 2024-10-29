@@ -25,4 +25,9 @@ public class Malt {
             runPrompt();
           }
     }
+
+    private static void runFile(String path) throws IOException {
+        byte[] bytes = Files.readAllBytes(Paths.get(path));
+        run(new String(bytes, Charset.defaultCharset()));
+    }
 }
