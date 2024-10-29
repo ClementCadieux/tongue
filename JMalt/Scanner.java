@@ -100,6 +100,26 @@ public class Scanner {
         }
     }
 
+    private void string() {
+        while (peek() != '"' && !isAtEnd()) {
+            if (peek() == '\n')
+                line++;
+            advance();
+        }
+
+        if (isAtEnd()) {
+            Malt.error(line, "Unterminated string.");
+            return;
+        }
+
+        // The closing ".
+        advance();
+
+        // Trim the surrounding quotes.
+        String value = source.substring(start + 1, current - 1);
+        addToken(STRING, value);
+    }
+
     private char peek() {
         if (isAtEnd())
             return '\0';
