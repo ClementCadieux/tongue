@@ -95,7 +95,11 @@ public class Scanner {
                 break;
 
             default:
-                Malt.error(line, "Unexpected character.");
+                if (isDigit(c)) {
+                    number();
+                } else {
+                    Malt.error(line, "Unexpected character.");
+                }
                 break;
         }
     }
