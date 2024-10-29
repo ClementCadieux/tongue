@@ -31,6 +31,9 @@ public class Malt {
     private static void runFile(String path) throws IOException {
         byte[] bytes = Files.readAllBytes(Paths.get(path));
         run(new String(bytes, Charset.defaultCharset()));
+
+        if (hadError)
+            System.exit(65);
     }
 
     private static void runPrompt() throws IOException {
@@ -43,6 +46,7 @@ public class Malt {
             if (line == null)
                 break;
             run(line);
+            hadError = false;
         }
     }
 
