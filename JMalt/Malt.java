@@ -16,6 +16,13 @@ import java.util.List;
 public class Malt {
 
     public static void main(String[] args) {
-        
+        if (args.length > 1) {
+            System.out.println("Usage: jMalt [script]");
+            System.exit(64); 
+          } else if (args.length == 1) {
+            runFile(args[0]);
+          } else {
+            runPrompt();
+          }
     }
 }
