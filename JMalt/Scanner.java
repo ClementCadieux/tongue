@@ -60,6 +60,9 @@ public class Scanner {
             case '*':
                 addToken(STAR);
                 break;
+            default:
+                Malt.error(line, "Unexpected character.");
+                break;
         }
     }
 
