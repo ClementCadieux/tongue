@@ -97,6 +97,8 @@ public class Scanner {
             default:
                 if (isDigit(c)) {
                     number();
+                } else if (isAlpha(c)) {
+                    identifier();
                 } else {
                     Malt.error(line, "Unexpected character.");
                 }
