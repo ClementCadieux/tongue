@@ -106,6 +106,13 @@ public class Scanner {
         }
     }
 
+    private void identifier() {
+        while (isAlphaNumeric(peek()))
+            advance();
+
+        addToken(IDENTIFIER);
+    }
+
     private void number() {
         boolean isFloat = false;
 
